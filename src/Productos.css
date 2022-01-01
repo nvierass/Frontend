@@ -1,0 +1,19 @@
+
+.titulo{
+    text-align: center;
+}
+    .form-producto{
+        list-style: none;
+        align-content: left;
+        margin-left: 40%;
+    }
+    .form-control{
+        align-content: right;
+        margin-right: 40%;
+    }
+
+    .boton-borrar{
+        size: 1rem 3rem;
+        align-items: center;
+    }
+    
