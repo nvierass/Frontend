@@ -4,10 +4,15 @@
         margin: 1rem;
         border-left: 3rem;
         border-right: 3rem;
-        padding: 1rem 3rem;
+        padding: 1rem 3rem; 
+         
+        
     }
 
     .titulo{
         font-size: xx-large;
     }
 
+    .body{
+        background-color: #69BBBC;
+    }

@@ -36,7 +36,7 @@ class Producto extends Component{
 
     render() {
         return (
-            <div className='info-producto' style = {stylecss}>
+            <div className='info-producto' style = {stylecss} Style="body">
                 <p className='titulo' style = {stylecss}>{this.state.index}. {this.state.producto.nombre} </p>
                 <div className='detalles'>
                     <p>Codigo de producto: {this.state.producto.codigoProducto}</p>
@@ -44,7 +44,7 @@ class Producto extends Component{
                     <p>Fecha de vencimiento: {this.state.producto.fechaVencimiento}</p>
                     <p className='titulo'>Precio:${this.state.producto.precio}</p>
                 </div>
-                <button onClick={this.handleDeleteById}>Borrar producto</button>
+                <button class="btn btn-danger" onClick={this.handleDeleteById}>Borrar producto</button>
             </div>
         );
     }

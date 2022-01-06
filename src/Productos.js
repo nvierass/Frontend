@@ -38,9 +38,16 @@ class Productos extends Component{
         this.setState(Object.assign(this.state.producto,{precio: parseInt(value,10)}));
     }
 
+
     handleSubmit = e => {
         e.preventDefault();
-        axios
+
+        if(this.state.producto.nombre === ""){
+            alert("error");
+
+        }
+        else{
+            axios
             .post("http://localhost:8080/productos/", { nombre: this.state.producto.nombre,
                                                         fechaVencimiento: this.state.producto.fechaVencimiento,
                                                         categoria: this.state.producto.categoria,
@@ -48,6 +55,14 @@ class Productos extends Component{
             .then(this.getData())
             .catch(err => console.log(err));
             this.getData();
+            this.refs.nombre.value=""; 
+            this.refs.fechavencimiento.value=""; 
+            this.refs.precio.value=""; 
+        }
+
+     
+ 
+            
     }
 
     handleDeleteAll = e =>{
@@ -65,42 +80,55 @@ class Productos extends Component{
 
     render() {
         return (
-            <div className = "productos">
-                <h1 className='titulo' style={stylecss}>Agregar un producto</h1>
-                <div className="form-producto" style = {stylecss}>
-                    <form>
-                        <label>Nombre producto:</label>
-                        <input className = "form-control" onChange={this.setNombre}/>
-                    </form>
-                    <form>
-                        <label>Fecha vencimiento (YYYY-MM-DD):</label>
-                        <input className = "form-control" onChange={this.setFecha}/>
-                    </form>
-                    <form>
-                        <label>Categoria:</label>
-                        <input className = "form-control" onChange={this.setCategoria}/>
-                    </form>
-                    <form>
-                        <label>Precio:</label>
-                        <input className = "form-control" onChange={this.setPrecio}/>
-                    </form>
-                    <form>
-                        <button type="submit" className ="btn btn-primary" onClick={this.handleSubmit}> Ingresar producto </button>
-                    </form>
+            <><nav class="navbar navbar-dark bg-dark">
 
-                </div>
-                <div className="list-producto">
-                    <h1 className='titulo'>Lista de productos</h1>
-                    <button className='boton-borrar' style={stylecss} onClick={this.handleDeleteAll}>Borrar Todos</button>
+            </nav>
+            <div class="contanier">
+                    <div class="row">
+                        <div class="col">
+                            <div className="productos">
+                                <h1 className='titulo' style={stylecss}>Agregar un producto</h1>
+                                <div className="form-producto" style={stylecss}>
+                                    <form>
+                                        <label>Nombre del producto:</label>
+                                        <input className="form-control" ref="nombre" placeholder="Ej: Mermerlada, Leche, etc." onChange={this.setNombre} />
+                                        
+                                        <label>Fecha vencimiento:</label>
+                                        <input className="form-control" ref="fechavencimiento" placeholder="formato: YYYY-MM-DD" onChange={this.setFecha} />
+                                    
+                                    
+                                        <label>Categoría:</label>
+                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={this.setCategoria} >
+                                            <option selected>Selecciona una categoría</option>
+                                            <option value="Nacional">Nacional</option>
+                                            <option value="Importado">Importado</option>  
+                                        </select>
+                                    
+                                        <label>Precio:</label>
+                                        <input className="form-control"  ref="precio" onChange={this.setPrecio} />
+
+                                        <button type="submit" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
+                                    </form>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col"></div>
+                        <div class="col"> </div>
+                    </div>
+                    <br></br>
+                    <br></br>
+                    <div className="list-producto">
+                        <h1 className='titulo' >Lista de productos</h1>
+                        <button className='boton-borrar' class="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Deseo borrar todos los productos</button>
                         <ul>
-                            {this.state.listaProductos.map((d,index) => (
+                            {this.state.listaProductos.map((d, index) => (
                                 <li key={d.codigoProducto}>
-                                    <Producto codigoProducto={d.codigoProducto} index = {index}/> 
+                                    <Producto codigoProducto={d.codigoProducto} index={index} />
                                 </li>
-                            ))} 
+                            ))}
                         </ul>
-                </div>
-            </div>
+                    </div>
+                </div></>           
         );
     }
 } 
