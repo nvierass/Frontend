@@ -105,7 +105,7 @@ class Productos extends Component{
                                         </select>
                                     
                                         <label>Precio:</label>
-                                        <input className="form-control"  ref="precio" onChange={this.setPrecio} />
+                                        <input id="boton" className="form-control"  ref="precio" onChange={this.setPrecio} />
 
                                         <button type="submit" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
                                     </form>    
