@@ -1,5 +1,5 @@
 pipeline {
-	agent any
+	agent {dockerfile: true}
 	stages {
 		stage('Clone repository') {
 			steps{
@@ -7,7 +7,6 @@ pipeline {
 			}
     		}
 		stage('Create Image') {
-			agent dockerfile: true
 			steps {
 				sh 'docker login -u nvierass -p Grupo4Mingeso'
 				sh 'docker build . -t nvierass/mingeso:frontend-mingesog4'
