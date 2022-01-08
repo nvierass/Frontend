@@ -7,11 +7,10 @@ pipeline{
 			}
 		}
 		stage('Image creation'){
-			agent {
-       				 docker { image 'node:16.13.1-alpine' }
-    			}
 			steps{
-				docker.build("nvierass/mingeso").push(":frontend-mingeso-g4")
+				sh 'docker login -u nvierass -p Grupo4Mingeso'
+				sh 'docker build . -t nvierass/mingeso:frontend-mingeso-g4'
+				sh 'docker push nvierass/mingeso:frontend-mingeso-g4'
 			}
 		}
 	}
