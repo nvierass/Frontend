@@ -21,5 +21,10 @@ pipeline {
 				echo "Prueba JF y Weebhook deploy"
 			}
 		}
+		stage('Final') {
+			steps {
+				echo "Nueva ultima instrucción"
+			}
+		}
 	}
 }
