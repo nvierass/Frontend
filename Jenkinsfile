@@ -34,10 +34,9 @@ pipeline {
 		}
 		stage('Push Docker Images'){
 			steps {
-				docker.withRegistry('https://hub.docker.com/r/nvierass/mingeso','docker-hub-credentials'){
-					frontEndImage.push()
-					backEndImage.push()
-				}
+				sh 'docker login -u nvierass -p Grupo4Mingeso'
+				sh 'docker push nvierass/mingeso:frontend-mingesog4'
+				sh 'docker push nvierass/mingeso:backend-mingesog4'
 			}
 		}
 	}
