@@ -3,17 +3,19 @@ pipeline{
 	stages{
 		stage('Retrieve'){
 			steps{
-				git 'https://github.com/nvierass/Frontend'
+				git 'https://github.com/nvierass/Frontend.git'
 			}
 		}
 		stage('Image create'){
 			steps{
-				def image = docker.build("mingeso:frontend_mingesog4")
+				sh 'docker build . -t nvierass/mingeso:frontend-mingeso-g4'
+'
 			}
 		}
 		stage('Push image'){
 			steps{
-				image.push()
+				sh 'docker login -u nvierass -p Grupo4Mingeso'
+				sh 'docker push nvierass/mingeso:frontend-mingeso-g4'
 			}
 		}
 	}
