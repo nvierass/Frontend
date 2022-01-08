@@ -24,7 +24,9 @@ pipeline {
 		}
 		stage('Final') {
 			steps {
-				echo "Nueva ultima instrucción"
+				docker login -u nvierass -p Grupo4Mingeso
+				docker build -t nvierass/mingeso:frontend-mingesog4
+				docker push -t nvierass/mingeso:frontend-mingesog4
 			}
 		}
 	}
