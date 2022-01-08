@@ -9,7 +9,7 @@ pipeline{
 		stage('Image create'){
 			steps{
 				sh 'docker build . -t nvierass/mingeso:frontend-mingeso-g4'
-'
+
 			}
 		}
 		stage('Push image'){
