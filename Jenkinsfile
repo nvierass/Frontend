@@ -13,7 +13,7 @@ pipeline{
 		}
 		stage('Push image'){
 			steps{
-				docker.push
+				docker.push()
 			}
 		}
 	}
