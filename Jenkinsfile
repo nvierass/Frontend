@@ -1,32 +1,17 @@
 pipeline {
 	agent any
 	stages {
-		stage('Preparacion') {
-			steps {
-				
-				echo "Nueva instrucción"
+		stage('Clone repository') {
+      			checkout scm
+    		}
+		stage('Create Image') {
+			agent {
+				dockerfile: true
 			}
-		}
-		stage('Build') {
 			steps {
-				echo "Prueba JF y Weebhook build"
-			}
-		}
-		stage('Test') {
-			steps {
-				echo "Prueba JF y Weebhook test"
-			}
-		}
-		stage('Deploy') {
-			steps {
-				echo "Prueba JF y Weebhook deploy"
-			}
-		}
-		stage('Final') {
-			steps {
-				docker login -u nvierass -p Grupo4Mingeso
-				docker build -t nvierass/mingeso:frontend-mingesog4
-				docker push -t nvierass/mingeso:frontend-mingesog4
+				sh 'docker login -u nvierass -p Grupo4Mingeso'
+				sh 'docker build . -t nvierass/mingeso:frontend-mingesog4'
+				sh 'docker push -t nvierass/mingeso:frontend-mingesog4'
 			}
 		}
 	}
