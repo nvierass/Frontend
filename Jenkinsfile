@@ -2,13 +2,19 @@ pipeline{
 	agent {dockerfile true}
 	stages{
 		stage('Retrieve'){
-			git 'https://github.com/nvierass/Frontend'
+			steps{
+				git 'https://github.com/nvierass/Frontend'
+			}
 		}
 		stage('Image create'){
-			docker.build("mingeso:frontend_mingesog4")
+			steps{
+				docker.build("mingeso:frontend_mingesog4")
+			}
 		}
 		stage('Push image'){
-			docker.push
+			steps{
+				docker.push
+			}
 		}
 	}
 }
