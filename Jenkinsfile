@@ -8,9 +8,7 @@ pipeline{
 		}
 		stage('Image creation'){
 			steps{
-				sh 'docker login -u nvierass -p Grupo4Mingeso'
-				sh 'docker build . -t nvierass/mingeso:frontend-mingeso-g4'
-				sh 'docker push nvierass/mingeso:frontend-mingeso-g4'
+				image = docker.build("nvierass/mingeso:frontend-mingeso-g4").push
 			}
 		}
 	}
