@@ -1,9 +1,9 @@
-pipeline {
-	agent {dockerfile true}
-	node {
-		echo 'Nodo 1'
-	}
-	node {
-		echo 'Nodo 2'
-	}
+nodo {
+	echo 'Nodo 1'
+	git 'https://github.com/nvierass/Frontend'
+}
+
+nodo {
+	echo 'Nodo 2'
+	git 'https://github.com/nvierass/Backend'
 }
