@@ -3,7 +3,7 @@ pipeline {
 	stages {
 		stage('Preparacion') {
 			steps {
-				ls
+				
 				echo "Nueva instrucción"
 			}
 		}
