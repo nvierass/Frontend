@@ -4,8 +4,8 @@ pipeline {
 		stage('Clone Repositories') {
 			steps{
 				echo 'Clonando repositorios'
-				def frontEnd = git 'https://github.com/nvierass/Frontend.git'
-				def backEnd = git 'https://github.com/nvierass/Backend.git'
+				git 'https://github.com/nvierass/Frontend.git'
+				git 'https://github.com/nvierass/Backend.git'
 				echo 'Repositorios clonados'
 			}
     		}
@@ -27,8 +27,8 @@ pipeline {
 		stage('Create Docker Images') {
 			steps {
 				echo 'Creando imagenes'
-				frontEndImage = sh 'docker build Frontend -t nvierass/mingeso:frontend-mingesog4'
-				frontEndImage = sh 'docker build Backend -t nvierass/mingeso:backend-mingesog4'
+				sh 'docker build Frontend -t nvierass/mingeso:frontend-mingesog4'
+				sh 'docker build Backend -t nvierass/mingeso:backend-mingesog4'
 				echo 'Imagenes creadas' 
 			}
 		}
