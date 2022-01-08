@@ -8,8 +8,8 @@ pipeline{
 		}
 		stage('Image creation'){
 			steps{
-				image = docker.build("nvierass/mingeso:frontend-mingeso-g4")
 				script{
+					def image = docker.build("nvierass/mingeso:frontend-mingeso-g4")
 					image.push(":frontend-mingeso-g4")
 				}
 			}
