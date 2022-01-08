@@ -7,6 +7,7 @@ pipeline{
 			}
 		}
 		stage('Image creation'){
+			agent { docker }
 			steps{
 				docker.build("nvierass/mingeso").push(":frontend-mingeso-g4")
 			}
