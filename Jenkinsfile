@@ -7,7 +7,7 @@ pipeline {
 			}
     		}
 		stage('Create Image') {
-			agent {	dockerfile: true }
+			agent dockerfile: true
 			steps {
 				sh 'docker login -u nvierass -p Grupo4Mingeso'
 				sh 'docker build . -t nvierass/mingeso:frontend-mingesog4'
