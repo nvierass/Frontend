@@ -54,10 +54,8 @@ class Productos extends Component{
                                                         precio: this.state.producto.precio  })
             .then(this.getData())
             .catch(err => console.log(err));
+            window.location.reload();
             this.getData();
-            this.refs.nombre.value=""; 
-            this.refs.fechavencimiento.value=""; 
-            this.refs.precio.value=""; 
         }
 
      
@@ -80,10 +78,9 @@ class Productos extends Component{
 
     render() {
         return (
-            <><nav class="navbar navbar-dark bg-dark">
-
-            </nav>
-            <div class="contanier">
+            <><div class="contanier">
+                    <nav class="navbar navbar-dark bg-dark"></nav>
+                                       
                     <div class="row">
                         <div class="col">
                             <div className="productos">
@@ -128,7 +125,7 @@ class Productos extends Component{
                             ))}
                         </ul>
                     </div>
-                </div></>           
+            </div></>           
         );
     }
 } 

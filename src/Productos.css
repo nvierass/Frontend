@@ -16,6 +16,12 @@
         align-items: center;
     }
 
+    .contanier{
+        max-width: 100%;
+        min-height: 101vh;
+    
+
+    }
 
 
  

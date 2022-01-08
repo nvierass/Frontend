@@ -26,11 +26,17 @@ class Producto extends Component{
         this.setState({producto: response.data});
     }
 
+    async getData2(){
+        const response = await axios.get("http://localhost:8080/productos/");
+    }
+
     handleDeleteById = e => {
         e.preventDefault();
         axios
             .delete("http://localhost:8080/productos/"+this.state.producto.codigoProducto)
             .catch(err => console.log(err));
+            window.location.reload();
+            this.getData2();
     }
 
 
