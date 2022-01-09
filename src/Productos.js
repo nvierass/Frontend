@@ -88,23 +88,23 @@ class Productos extends Component{
                                 <div className="form-producto" style={stylecss}>
                                     <form>
                                         <label>Nombre del producto:</label>
-                                        <input className="form-control" ref="nombre" placeholder="Ej: Mermerlada, Leche, etc." onChange={this.setNombre} />
+                                        <input className="form-control" ref="nombre" id="nameProducto" placeholder="Ej: Mermerlada, Leche, etc." onChange={this.setNombre} />
                                         
                                         <label>Fecha vencimiento:</label>
-                                        <input className="form-control" ref="fechavencimiento" placeholder="formato: YYYY-MM-DD" onChange={this.setFecha} />
+                                        <input className="form-control" ref="fechavencimiento" id="fechaV" placeholder="formato: YYYY-MM-DD" onChange={this.setFecha} />
                                     
                                     
                                         <label>Categoría:</label>
-                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" onChange={this.setCategoria} >
+                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="categoria" onChange={this.setCategoria} >
                                             <option selected>Selecciona una categoría</option>
                                             <option value="Nacional">Nacional</option>
                                             <option value="Importado">Importado</option>  
                                         </select>
                                     
                                         <label>Precio:</label>
-                                        <input id="boton" className="form-control"  ref="precio" onChange={this.setPrecio} />
+                                        <input id="precio" className="form-control"  ref="precio" onChange={this.setPrecio} />
 
-                                        <button type="submit" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
+                                        <button type="submit" id="botonIngresar" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
                                     </form>    
                                 </div>
                             </div>
