@@ -66,13 +66,13 @@ class Productos extends Component{
     handleDeleteAll = e =>{
         //e.preventDefault();
         axios
-            .delete("http://localhost:8080/productos/")
+            .delete("http://165.227.195.251:8080/productos/")
             .catch(err => console.log(err));
             this.getData();
     }
 
     async getData(){
-        const response = await axios.get("http://localhost:8080/productos/");
+        const response = await axios.get("http://165.227.195.251:8080/productos/");
         this.setState({listaProductos: response.data});
     }
 
