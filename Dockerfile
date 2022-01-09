@@ -6,7 +6,7 @@ WORKDIR /App
 
 COPY . ./
 #add to path
-ENV PATH /app/node_modelus/.bin:$PATH
+ENV PATH /app/node_modules/.bin:$PATH
 
 #install app dependencies
 COPY package.json ./

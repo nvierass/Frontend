@@ -48,7 +48,7 @@ class Productos extends Component{
         }
         else{
             axios
-            .post("http://localhost:8080/productos/", { nombre: this.state.producto.nombre,
+            .post("http://165.227.195.251:8080/productos/", { nombre: this.state.producto.nombre,
                                                         fechaVencimiento: this.state.producto.fechaVencimiento,
                                                         categoria: this.state.producto.categoria,
                                                         precio: this.state.producto.precio  })
