@@ -43,8 +43,7 @@ class Productos extends Component{
         e.preventDefault();
 
         if(this.state.producto.nombre === ""){
-            alert("error");
-
+            alert("Error: Debe ingresar el nombre del producto.");
         }
         else{
             axios
@@ -56,15 +55,11 @@ class Productos extends Component{
             .catch(err => console.log(err));
             window.location.reload();
             this.getData();
-        }
-
-     
- 
-            
+        }     
     }
 
     handleDeleteAll = e =>{
-        //e.preventDefault();
+        e.preventDefault();
         axios
             .delete("http://165.227.195.251:8080/productos/")
             .catch(err => console.log(err));
@@ -72,17 +67,19 @@ class Productos extends Component{
     }
 
     async getData(){
-        const response = await axios.get("http://165.227.195.251:8080/productos/");
+        const response = await axios.get("http://165.227.195.251:8080/productos/")
+        .catch(err => console.log(err));
+        console.log(response.data);
         this.setState({listaProductos: response.data});
     }
 
     render() {
         return (
-            <><div class="contanier">
-                    <nav class="navbar navbar-dark bg-dark"></nav>
+            <><div className="contanier">
+                    <nav className="navbar navbar-dark bg-dark"></nav>
                                        
-                    <div class="row">
-                        <div class="col">
+                    <div className="row">
+                        <div className="col">
                             <div className="productos">
                                 <h1 className='titulo' style={stylecss}>Agregar un producto</h1>
                                 <div className="form-producto" style={stylecss}>
@@ -95,7 +92,7 @@ class Productos extends Component{
                                     
                                     
                                         <label>Categoría:</label>
-                                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="categoria" onChange={this.setCategoria} >
+                                        <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="categoria" onChange={this.setCategoria} >
                                             <option selected>Selecciona una categoría</option>
                                             <option value="Nacional">Nacional</option>
                                             <option value="Importado">Importado</option>  
@@ -109,14 +106,14 @@ class Productos extends Component{
                                 </div>
                             </div>
                         </div>
-                        <div class="col"></div>
-                        <div class="col"> </div>
+                        <div className="col"></div>
+                        <div className="col"> </div>
                     </div>
                     <br></br>
                     <br></br>
                     <div className="list-producto">
                         <h1 className='titulo' >Lista de productos</h1>
-                        <button className='boton-borrar' class="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Deseo borrar todos los productos</button>
+                        <button className='boton-borrar' className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Deseo borrar todos los productos</button>
                         <ul>
                             {this.state.listaProductos.map((d, index) => (
                                 <li key={d.codigoProducto}>

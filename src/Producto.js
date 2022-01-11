@@ -22,8 +22,10 @@ class Producto extends Component{
         this.getData();
     }
     async getData(){
-        const response = await axios.get("http://165.227.195.251:8080/productos/"+ this.state.producto.codigoProducto);
+        const response = await axios.get("http://165.227.195.251:8080/productos/"+ this.state.producto.codigoProducto)
+        .catch(err => console.log(err));
         this.setState({producto: response.data});
+        console.log(response.data);
     }
 
     async getData2(){
