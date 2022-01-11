@@ -45,6 +45,12 @@ class Productos extends Component{
         if(this.state.producto.nombre === ""){
             alert("Error: Debe ingresar el nombre del producto.");
         }
+        else if(this.state.producto.fechaVencimiento === ""){
+            alert("Error: Debe ingresar fecha de vencimiento del producto.");
+        }
+        else if(this.state.producto.precio === null ){
+            alert("Error: Debe ingresar precio del producto.");
+        }
         else{
             axios
             .post("http://165.227.195.251:8080/productos/", { nombre: this.state.producto.nombre,

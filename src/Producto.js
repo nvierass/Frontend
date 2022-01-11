@@ -28,9 +28,7 @@ class Producto extends Component{
         console.log(response.data);
     }
 
-    async getData2(){
-        const response = await axios.get("http://165.227.195.251:8080/productos/");
-    }
+ 
 
     handleDeleteById = e => {
         e.preventDefault();
@@ -39,6 +37,9 @@ class Producto extends Component{
             .catch(err => console.log(err));
             window.location.reload();
             this.getData2();
+    }
+    async getData2(){
+        const response = await axios.get("http://165.227.195.251:8080/productos/");
     }
 
 
