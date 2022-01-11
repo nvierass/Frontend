@@ -52,8 +52,9 @@ class Productos extends Component{
             alert("Error: Debe ingresar precio del producto.");
         }
         else{
+            axios.defaults.baseURL = 'http://165.227.195.251:8080';
             axios
-            .post("http://165.227.195.251:8080/productos/", { nombre: this.state.producto.nombre,
+            .post("/productos/", { nombre: this.state.producto.nombre,
                                                         fechaVencimiento: this.state.producto.fechaVencimiento,
                                                         categoria: this.state.producto.categoria,
                                                         precio: this.state.producto.precio  })
@@ -66,14 +67,16 @@ class Productos extends Component{
 
     handleDeleteAll = e =>{
         e.preventDefault();
+        axios.defaults.baseURL = 'http://165.227.195.251:8080';
         axios
-            .delete("http://165.227.195.251:8080/productos/")
+            .delete("/productos/")
             .catch(err => console.log(err));
             this.getData();
     }
 
     async getData(){
-        const response = await axios.get("http://165.227.195.251:8080/productos/")
+        axios.defaults.baseURL = 'http://165.227.195.251:8080';
+        const response = await axios.get("/productos/")
         .catch(err => console.log(err));
         console.log(response.data);
         this.setState({listaProductos: response.data});
@@ -81,13 +84,13 @@ class Productos extends Component{
 
     render() {
         return (
-            <><div className="contanier">
-                    <nav className="navbar navbar-dark bg-dark"></nav>
-                                       
+            <><div className="contanier">       
+                    <div className='list-producto'>
+                       <h1 className='titulo'>Agregar un producto</h1>
+                    </div>
                     <div className="row">
                         <div className="col">
                             <div className="productos">
-                                <h1 className='titulo' style={stylecss}>Agregar un producto</h1>
                                 <div className="form-producto" style={stylecss}>
                                     <form>
                                         <label>Nombre del producto:</label>
@@ -105,28 +108,26 @@ class Productos extends Component{
                                         </select>
                                     
                                         <label>Precio:</label>
-                                        <input id="precio" className="form-control"  ref="precio" onChange={this.setPrecio} />
+                                        <input id="precio" className="form-control" ref="precio" onChange={this.setPrecio} />
 
                                         <button type="submit" id="botonIngresar" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
                                     </form>    
                                 </div>
                             </div>
                         </div>
-                        <div className="col"></div>
+                            <div className="col"></div>
                         <div className="col"> </div>
                     </div>
-                    <br></br>
-                    <br></br>
                     <div className="list-producto">
                         <h1 className='titulo' >Lista de productos</h1>
-                        <button className='boton-borrar' className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Deseo borrar todos los productos</button>
-                        <ul>
+                         <ul>
                             {this.state.listaProductos.map((d, index) => (
                                 <li key={d.codigoProducto}>
                                     <Producto codigoProducto={d.codigoProducto} index={index} />
                                 </li>
                             ))}
                         </ul>
+                        <button className='boton-borrar' className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Borrar todos los productos</button>
                     </div>
             </div></>           
         );
