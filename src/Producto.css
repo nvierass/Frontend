@@ -14,3 +14,7 @@
     .body{
         background-color: #69BBBC;
     }
+    
+    .btn.btn-danger{
+        align-items: center;
+    }

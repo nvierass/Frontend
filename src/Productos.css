@@ -1,11 +1,8 @@
 
     .titulo{
+        padding-top: 1rem;
+        padding-bottom: 1rem;
         text-align: center;
-    }
-    .form-producto{
-        list-style: none;
-        align-content: left;
-        margin-left: 40%;
     }
     .form-control{
         align-content: right;
@@ -19,9 +16,30 @@
     .contanier{
         max-width: 100%;
         min-height: 101vh;
-    
-
     }
+
+    .form-producto{
+        padding: 1rem 2rem;
+        margin-left: 40%;
+        margin-right: 40%;
+        text-transform: capitalize;
+        border: 3px solid #090;
+        padding: 1rem 2rem;
+    }
+
+    .list-producto {
+        padding: 3rem 2rem;
+        margin-left: 25%;
+        margin-right: 25%;
+        text-transform: capitalize;
+        border: 3px solid #090;
+        padding: 1rem 2rem;
+    }
+
+    .items-list{
+        list-style: none;
+    }
+    
 
 
  

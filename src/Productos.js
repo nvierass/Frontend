@@ -84,52 +84,41 @@ class Productos extends Component{
 
     render() {
         return (
-            <><div className="contanier">       
-                    <div className='list-producto'>
-                       <h1 className='titulo'>Agregar un producto</h1>
-                    </div>
-                    <div className="row">
-                        <div className="col">
-                            <div className="productos">
-                                <div className="form-producto" style={stylecss}>
-                                    <form>
-                                        <label>Nombre del producto:</label>
-                                        <input className="form-control" ref="nombre" id="nameProducto" placeholder="Ej: Mermerlada, Leche, etc." onChange={this.setNombre} />
-                                        
-                                        <label>Fecha vencimiento:</label>
-                                        <input className="form-control" ref="fechavencimiento" id="fechaV" placeholder="formato: YYYY-MM-DD" onChange={this.setFecha} />
-                                    
-                                    
-                                        <label>Categoría:</label>
-                                        <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="categoria" onChange={this.setCategoria} >
-                                            <option selected>Selecciona una categoría</option>
-                                            <option value="Nacional">Nacional</option>
-                                            <option value="Importado">Importado</option>  
-                                        </select>
-                                    
-                                        <label>Precio:</label>
-                                        <input id="precio" className="form-control" ref="precio" onChange={this.setPrecio} />
+            <div className="contanier">       
+                <h1 className='titulo'>Agregar un producto</h1>
+                <div className="form-producto" style={stylecss}>
+                    <form>
+                        <label>Nombre del producto:</label>
+                        <input className="form-control" ref="nombre" id="nameProducto" placeholder="Ej: Mermerlada, Leche, etc." onChange={this.setNombre} />
+                        
+                        <label>Fecha vencimiento:</label>
+                        <input className="form-control" ref="fechavencimiento" id="fechaV" placeholder="formato: YYYY-MM-DD" onChange={this.setFecha} />
+                    
+                        <label>Categoría:</label>
+                        <select className="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="categoria" onChange={this.setCategoria} >
+                            <option selected>Selecciona una categoría</option>
+                            <option value="Nacional">Nacional</option>
+                            <option value="Importado">Importado</option>  
+                        </select>
+                    
+                        <label>Precio:</label>
+                        <input id="precio" className="form-control" ref="precio" onChange={this.setPrecio} />
 
-                                        <button type="submit" id="botonIngresar" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
-                                    </form>    
-                                </div>
-                            </div>
-                        </div>
-                            <div className="col"></div>
-                        <div className="col"> </div>
-                    </div>
-                    <div className="list-producto">
-                        <h1 className='titulo' >Lista de productos</h1>
-                         <ul>
-                            {this.state.listaProductos.map((d, index) => (
-                                <li key={d.codigoProducto}>
-                                    <Producto codigoProducto={d.codigoProducto} index={index} />
-                                </li>
-                            ))}
-                        </ul>
-                        <button className='boton-borrar' className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Borrar todos los productos</button>
-                    </div>
-            </div></>           
+                        <button type="submit" id="botonIngresar" value="Clear" className="btn btn-primary" Style="margin-top:25px;" onClick={this.handleSubmit}> Ingresar producto </button>
+                    </form>    
+                </div>
+                <br></br>
+                <div className="list-producto" style = {stylecss}>
+                    <h1 className='titulo' >Lista de productos</h1>
+                    <ul className='items-list'>
+                        {this.state.listaProductos.map((d, index) => (
+                        <li className='producto' key={d.codigoProducto}>
+                            <Producto codigoProducto={d.codigoProducto} index={index} />
+                        </li>))}
+                    </ul>
+                    <button className='boton-borrar' className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Borrar todos los productos</button>
+                </div>
+            </div>
         );
     }
 } 
