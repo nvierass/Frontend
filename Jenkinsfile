@@ -3,7 +3,7 @@ pipeline{
 	stages{
 		stage('Retrieve'){
 			steps{
-				git 'https://github.com/nvierass/Frontend.git'
+				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
 		stage('Image creation'){
