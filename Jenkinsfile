@@ -14,5 +14,13 @@ pipeline{
 				}
 			}
 		}
+		stage('Test Automatizadas'){
+			steps{
+				script{
+					sh 'npm test.js'
+					
+				}
+			}
+		}
 	}
 }
