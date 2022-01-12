@@ -8,7 +8,7 @@ pipeline{
 		}
 		stage('Test Automatizadas'){
 			steps{
-				dir("scr"){
+				dir("src"){
 					
 						sh 'npm test.js'
 				
