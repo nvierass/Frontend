@@ -7,6 +7,15 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
+		stage('Test Automatizadas'){
+			steps{
+				script{
+					    sh 'npm install'
+						sh 'npm test.sh'
+					    junit '**/target/*.xml' 
+				}
+			}
+		}
 		
 		stage('Image creation'){
 			steps{
@@ -16,14 +25,7 @@ pipeline{
 				}
 			}
 		}
-		stage('Test Automatizadas'){
-			steps{
-				script{
-						sh 'npm test.sh'
-					    junit '**/target/*.xml' 
-				}
-			}
-		}
+		
 		
 	}
 }
