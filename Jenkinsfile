@@ -9,10 +9,10 @@ pipeline{
 		}
 		stage('Test Automatizadas'){
 			steps{
-				
+				script{
 						sh 'npm test'
 					    junit '**/target/*.xml' 
-				
+				}
 			}
 		}
 		stage('Image creation'){
