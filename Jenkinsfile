@@ -6,6 +6,15 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
+		stage('Test Automatizadas'){
+			steps{
+				dir("scr"){
+					
+						sh 'npm test.js'
+				
+				}
+			}
+		}
 		stage('Image creation'){
 			steps{
 				script{
@@ -14,13 +23,6 @@ pipeline{
 				}
 			}
 		}
-		stage('Test Automatizadas'){
-			steps{
-				script{
-					sh 'npm test.js'
-					
-				}
-			}
-		}
+		
 	}
 }
