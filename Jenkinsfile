@@ -10,9 +10,6 @@ pipeline{
 		stage('Test Automatizadas'){
 			steps{
 				dir("src"){
-						sh 'npm install'
-						sh 'install -g selenium-webdriver'
-						sh 'npm instal request'
 						sh 'npm test.js'
 					    junit '**/target/*.xml' 
 				}
