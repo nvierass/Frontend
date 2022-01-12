@@ -10,7 +10,7 @@ pipeline{
 		stage('Test Automatizadas'){
 			steps{
 				script{
-					    sh 'npm install'
+					    sh "/usr/bin/npm install"
 						sh './src/test.sh'
 					    junit '**/target/*.xml' 
 				}
