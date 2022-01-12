@@ -10,7 +10,7 @@ pipeline{
 		stage('Test Automatizadas'){
 			steps{
 				dir("src"){
-						sh 'npm test.js'
+						sh 'npm test'
 					    junit '**/target/*.xml' 
 				}
 			}
