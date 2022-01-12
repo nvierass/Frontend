@@ -1,6 +1,6 @@
 pipeline{
 	agent any
-	tools {nodejs "NODEJS"}
+	//tools {nodejs "NODEJS"}
 	stages{
 		stage('Retrieve'){
 			steps{
@@ -9,10 +9,10 @@ pipeline{
 		}
 		stage('Test Automatizadas'){
 			steps{
-				dir("src"){
-						sh '--npm test'
+				
+						sh 'npm test'
 					    junit '**/target/*.xml' 
-				}
+				
 			}
 		}
 		stage('Image creation'){
