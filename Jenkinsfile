@@ -11,7 +11,7 @@ pipeline{
 			steps{
 				script{
 					    sh 'npm install'
-						sh 'npm test.sh'
+						sh './src/test.sh'
 					    junit '**/target/*.xml' 
 				}
 			}
