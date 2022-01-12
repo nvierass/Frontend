@@ -11,7 +11,7 @@ pipeline{
 				dir("src"){
 					
 						sh 'npm test.js'
-				
+					    junit '**/target/*.xml' 
 				}
 			}
 		}
