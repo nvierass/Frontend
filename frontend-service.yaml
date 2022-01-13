@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+Kind: Service
+metadata:
+	name: frontend-service
+spec:
+  type: Loadbalancer
+  selector:
+  app:frontend
+  ports:
+  -name:http
+  protocol:TCP
+  port:3000
+  targetPort:3000
+  nodePort:32000
