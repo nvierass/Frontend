@@ -10,8 +10,9 @@ pipeline{
 		stage('Test Automatizadas'){
 			steps{
 				script{
-					sh './src/test.js'
-					junit '**/target/*.xml' 
+					//sh './src/test.js'
+					//junit '**/target/*.xml' 
+					echo 'Holamundo'
 				}
 			}
 		}
