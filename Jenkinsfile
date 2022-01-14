@@ -7,13 +7,6 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
-		stage('Sonarqube analisis'){
-			steps{
-				withSonarQubeEnv('sonarcloud'){
-					sh 'mvn clean package sonar:sonar'
-				}
-			}
-		}
 		stage('Image creation'){
 			steps{
 				script{
