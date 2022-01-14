@@ -7,16 +7,13 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
-		stage('Test Automatizadas'){
+		stage('Sonarqube analisis'){
 			steps{
-				script{
-					//sh './src/test.js'
-					//junit '**/target/*.xml' 
-					echo 'Holamundo'
+				withSonarQubeEnv('sonarcloud'){
+					sh 'mvn clean package sonar:sonar'
 				}
 			}
 		}
-		
 		stage('Image creation'){
 			steps{
 				script{
