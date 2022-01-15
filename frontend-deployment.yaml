@@ -16,7 +16,7 @@ spec:
       spec:
         containers:
           - name: frontend
-            image: benja5026/frontendminikube
+            image: nvierass/mingeso:frontend-mingeso-g4
             imagePullPolicy: Always
             ports:
               - name: http
