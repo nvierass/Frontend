@@ -3,22 +3,22 @@ Kind: Deployment
 metadata:
 	name: frontend-deployment
 	labels:
-		app:frontend
+		app: frontend
 spec:
-  replicas:1
+  replicas: 1
 	selector:
     matchLabebls:
-      app:frontend
+      app: frontend
     template:
       metadata:
         labels:
-          app:frontend
+          app: frontend
       spec:
         containers:
-          - name:frontend
-            image:benja5026/frontendminikube
-            imagePullPolicy:Always
+          - name: frontend
+            image: benja5026/frontendminikube
+            imagePullPolicy: Always
             ports:
               - name: http
-                containerPort:3000
+                containerPort: 3000
 
