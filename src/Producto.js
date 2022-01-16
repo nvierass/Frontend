@@ -26,7 +26,7 @@ class Producto extends Component{
         this.getData();
     }
     async getData(){
-        axios.defaults.baseURL = 'http://165.227.195.251:32000';
+        axios.defaults.baseURL = 'http://167.172.138.64:30000';
         const response = await axios.get("/productos/"+ this.state.producto.codigoProducto)
         .catch(err => console.log(err));
         this.setState({producto: response.data});
@@ -35,7 +35,7 @@ class Producto extends Component{
 
     handleDeleteById = e => {
         e.preventDefault();
-        axios.defaults.baseURL = 'http://165.227.195.251:32000';
+        axios.defaults.baseURL = 'http://167.172.138.64:30000';
         axios
             .delete("/productos/"+this.state.producto.codigoProducto)
             .catch(err => console.log(err));
