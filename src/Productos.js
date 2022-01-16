@@ -52,7 +52,7 @@ class Productos extends Component{
             alert("Error: Debe ingresar precio del producto.");
         }
         else{
-            axios.defaults.baseURL = 'http://165.227.195.251:8080';
+            axios.defaults.baseURL = 'http://165.227.195.251:32000';
             axios
             .post("/productos/", { nombre: this.state.producto.nombre,
                                                         fechaVencimiento: this.state.producto.fechaVencimiento,
@@ -67,7 +67,7 @@ class Productos extends Component{
 
     handleDeleteAll = e =>{
         e.preventDefault();
-        axios.defaults.baseURL = 'http://165.227.195.251:8080';
+        axios.defaults.baseURL = 'http://165.227.195.251:32000';
         axios
             .delete("/productos/")
             .catch(err => console.log(err));
@@ -75,7 +75,7 @@ class Productos extends Component{
     }
 
     async getData(){
-        axios.defaults.baseURL = 'http://165.227.195.251:8080';
+        axios.defaults.baseURL = 'http://165.227.195.251:32000';
         const response = await axios.get("/productos/")
         .catch(err => console.log(err));
         console.log(response.data);
