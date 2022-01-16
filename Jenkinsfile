@@ -7,16 +7,6 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
-		stage('Test Automatizadas'){
-			steps{
-				script{
-					//sh './src/test.js'
-					//junit '**/target/*.xml' 
-					echo 'Holamundo'
-				}
-			}
-		}
-		
 		stage('Image creation'){
 			steps{
 				script{
