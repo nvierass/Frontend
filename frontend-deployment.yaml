@@ -1,24 +1,23 @@
 apiVersion: apps/v1
-Kind: Deployment
+kind: Deployment
 metadata:
-	name: frontend-deployment
-	labels:
-		app: frontend
+ name: frontend-deployment
+ labels:
+   app: frontend
 spec:
-  replicas: 1
-	selector:
-    matchLabebls:
+ replicas: 1
+ selector:
+    matchLabels:
       app: frontend
-    template:
-      metadata:
-        labels:
-          app: frontend
-      spec:
-        containers:
-          - name: frontend
-            image: nvierass/mingeso:frontend-mingeso-g4
-            imagePullPolicy: Always
-            ports:
-              - name: http
-                containerPort: 3000
-
+ template:
+  metadata:
+   labels:
+    app: frontend
+  spec:
+   containers:
+    - name: frontend
+      image: nvierass/mingeso:frontend-mingeso-g4
+      imagePullPolicy: Always
+      ports:
+       - name: http
+         containerPort: 31000
