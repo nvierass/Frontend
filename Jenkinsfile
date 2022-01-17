@@ -7,13 +7,14 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
-		stage('Test'){
-			steps{
-				dir("src"){
-					sh "npm test"
-				}
-			}
-		}
+		environment {
+        CI = 'true' 
+    }
+		stage('Test') { 
+            steps {
+                sh './src/test.sh' 
+            }
+        }
 		stage('Image creation'){
 			steps{
 				script{
