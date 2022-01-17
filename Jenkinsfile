@@ -9,7 +9,7 @@ pipeline{
 		}
 		stage('Test') { 
             steps {
-                sh 'sudo ./src/test.js' 
+                sh 'node test' 
             }
         }
 		stage('Image creation'){
