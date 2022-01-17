@@ -8,9 +8,9 @@ pipeline{
 		}
 		stage('Test'){
 			steps{
-				dir("src"){
+				
 					sh "npm test"
-				}
+				
 			}
 		}
 		stage('Image creation'){
