@@ -7,9 +7,6 @@ pipeline{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
-		environment {
-        CI = 'true' 
-    }
 		stage('Test') { 
             steps {
                 sh './src/test.sh' 
