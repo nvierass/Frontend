@@ -62,7 +62,7 @@ class Producto extends Component{
                         <p>Fecha de vencimiento: {this.state.producto.fechaVencimiento}</p>
                         <p className='titulo'>Precio:${this.state.producto.precio}</p>
                     </div>
-                    <button class="btn btn-danger" onClick={this.handleDeleteById}>Borrar producto</button>
+                    <button class="btn btn-danger" id ="borrar-producto" onClick={this.handleDeleteById}>Borrar producto</button>
                 </div>
             );     
         }

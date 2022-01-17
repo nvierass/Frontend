@@ -116,7 +116,7 @@ class Productos extends Component{
                             <Producto codigoProducto={d.codigoProducto} index={index} />
                         </li>))}
                     </ul>
-                    <button className='boton-borrar' className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Borrar todos los productos</button>
+                    <button className='boton-borrar' id="boton-borrar-todos" className="btn btn-danger" Style="margin-left:12px;" style={stylecss} onClick={this.handleDeleteAll}>Borrar todos los productos</button>
                 </div>
             </div>
         );
