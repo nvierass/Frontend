@@ -25,7 +25,7 @@ async function agregarProductosTrue () {
 }agregarProductosTrue();
 
 // Test 2
-async function borrarProductoTrue () {
+async function borrarTodosProductosTrue () {
   let driver =await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:3000");
   try{
