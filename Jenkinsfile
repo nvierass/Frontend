@@ -1,17 +1,19 @@
 pipeline{
 	agent any
-
+	
 	stages{
 		stage('Retrieve'){
 			steps{
 				git branch: 'master',  url: 'https://github.com/nvierass/Frontend'
 			}
 		}
-		stage('Test') { 
-            steps {
-                sh 'node test' 
-            }
-        }
+		stage('Test'){
+			steps{
+				dir("src"){
+					sh 'node test'
+				}
+			}
+		}
 		stage('Image creation'){
 			steps{
 				script{
