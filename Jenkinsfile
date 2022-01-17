@@ -9,7 +9,7 @@ pipeline{
 		}
 		stage('Test') { 
             steps {
-                sh './src/test' 
+                sh './src/test.js' 
             }
         }
 		stage('Image creation'){
