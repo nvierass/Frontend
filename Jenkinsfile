@@ -1,5 +1,6 @@
 pipeline{
 	agent any
+
 	stages{
 		stage('Retrieve'){
 			steps{
@@ -8,9 +9,9 @@ pipeline{
 		}
 		stage('Test'){
 			steps{
-				
+				dir("src"){
 					sh "npm test"
-				
+				}
 			}
 		}
 		stage('Image creation'){
