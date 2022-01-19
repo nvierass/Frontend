@@ -5,7 +5,7 @@ const assert = require('assert');
 async function agregarProductosTrue () {
   let driver =await new Builder().forBrowser("chrome").build();
   try{
-    await driver.get("http://localhost:3000");
+    await driver.get("http://165.227.195.251:3000/");
     const nameProducto = await driver.findElement(By.id("nameProducto"));
     nameProducto.sendKeys("coca cola");
     const fecha= await driver.findElement(By.id("fechaV"));
@@ -27,7 +27,7 @@ async function agregarProductosTrue () {
 // Test 2
 async function borrarTodosProductosTrue () {
   let driver =await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:3000");
+  await driver.get("http://165.227.195.251:3000/");
   try{
   const boton=driver.findElement(By.id("borrar-producto"));
   boton.click();
@@ -42,7 +42,7 @@ async function borrarTodosProductosTrue () {
 // Test 3
 async function borrarProductoTrue () {
   let driver =await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:3000");
+  await driver.get("http://165.227.195.251:3000/");
   try{
   const botonEliminarTodos=driver.findElement(By.id("boton-borrar-todos"));
   botonEliminarTodo.click();
