@@ -16,7 +16,6 @@ async function agregarProductosTrue () {
     Precio.sendKeys("1990");
     const boton=driver.findElement(By.id("botonIngresar"));
     boton.click();
-    const flag=0;
 
   }finally{
     await driver.quit();
@@ -31,7 +30,7 @@ async function borrarProductoTrue () {
   await driver.get("http://localhost:3000");
   try{
   const botonEliminarTodos=driver.findElement(By.id("boton-borrar-todos"));
-  botonEliminarTodo.click();
+  botonEliminarTodos.click();
 
 
   }finally{
