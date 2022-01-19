@@ -24,7 +24,24 @@ async function agregarProductosTrue () {
 
 }agregarProductosTrue();
 
+
 // Test 2
+async function borrarProductoTrue () {
+  let driver =await new Builder().forBrowser("chrome").build();
+  await driver.get("http://localhost:3000");
+  try{
+  const botonEliminarTodos=driver.findElement(By.id("boton-borrar-todos"));
+  botonEliminarTodo.click();
+
+
+  }finally{
+    await driver.quit();
+  }
+
+}borrarProductoTrue();
+
+
+// Test 3
 async function borrarTodosProductosTrue () {
   let driver =await new Builder().forBrowser("chrome").build();
   await driver.get("http://localhost:3000");
@@ -39,20 +56,6 @@ async function borrarTodosProductosTrue () {
 
 }borrarTodosProductosTrue();
 
-// Test 3
-async function borrarProductoTrue () {
-  let driver =await new Builder().forBrowser("chrome").build();
-  await driver.get("http://localhost:3000");
-  try{
-  const botonEliminarTodos=driver.findElement(By.id("boton-borrar-todos"));
-  botonEliminarTodo.click();
-
-
-  }finally{
-    await driver.quit();
-  }
-
-}borrarProductoTrue();
 
 
 
