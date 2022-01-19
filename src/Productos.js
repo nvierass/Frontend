@@ -85,7 +85,7 @@ class Productos extends Component{
     render() {
         return (
             <div className="contanier">       
-                <h1 className='titulo'>Agregar un producto</h1>
+                <h1 className='titulo'>Agregar un producto(Enero 2022)</h1>
                 <div className="form-producto" style={stylecss}>
                     <form>
                         <label>Nombre del producto:</label>
